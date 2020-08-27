@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My first paragraph.</p>
+
+<script>
+    const socket = new WebSocket("ws://localhost:9694")
+    socket.addEventListener("open", function(event) {
+        socket.send(JSON.stringify({
+            kind: "CreateRoom",
+            room: "my-new-chat-room",
+            data: "well I guess I don't know"
+        }));
+    });
+    socket.addEventListener("message", function(event) {
+        console.log("Message from server", event.data)
+    });
+</script>
+</body>
+</html>
+

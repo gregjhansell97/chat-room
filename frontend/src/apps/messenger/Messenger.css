@@ -1,0 +1,125 @@
+.Messenger {
+  color: var(--primary-color);
+  height: 100vh;
+}
+
+.Messenger-Col {
+  height: 100vh;
+  background-color: var(--secondary-color);
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.NavOptions {
+  width: 100%;
+  height: 75px;
+  margin: auto;
+  padding: 0;
+  border: var(--border-thickness) solid var(--primary-color)
+}
+.AddChatButton {
+  height: 70px;
+  width: 70px;
+  padding: 0px;
+  margin: 0px;
+  background-color: var(--secondary-color) !important;
+  border: none !important;
+}
+.AddChatModal .modal-content {
+  background-color: var(--secondary-color);
+  color: var(--secondary-color)
+}
+.AddChatButtonIcon {
+  width: 100%;
+  height: 100%;
+  font-size: 36px;
+  margin-top: 11px;
+  border: none;
+  outline: none;
+}
+.ChatOptions {
+  width: 100%;
+  height: 75px;
+  margin: auto;
+  border-right: var(--border-thickness) solid var(--primary-color);
+  border-top: var(--border-thickness) solid var(--primary-color);
+  border-bottom: var(--border-thickness) solid var(--primary-color);
+}
+.ChatOptionsTitle {
+  margin: 10px;
+}
+.ChatMessage {
+  text-align: left;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 10px;
+  display: block;
+  width: 94%;
+  max-height: 50%;
+  padding: .5rem 1rem;
+  border-left: .35rem solid var(--primary-color)
+}
+.MyChatMessage {
+  text-align: right;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 10px;
+  display: block;
+  width: 94%;
+  max-height: 50%;
+  padding: .5rem 1rem;
+  border-right: .35rem solid var(--primary-color)
+}
+.ChatMessageContent {
+  font-size: 25px;
+}
+.ChatMessageFooter {
+  font-size: 18px!important;
+}
+.ChatMessages {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: calc(100% - 150px);
+  border-right: var(--border-thickness) solid var(--primary-color);
+  border-bottom: var(--border-thickness) solid var(--primary-color);
+}
+
+.ChatMessageList {
+  position: absolute;
+  max-height: calc(100% - 10px);
+  overflow-y: auto;
+  bottom: 10px;
+  width: 100%;
+}
+
+
+.ChatMessageInputBox {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 75px;
+  border-right: var(--border-thickness) solid var(--primary-color);
+  border-bottom: var(--border-thickness) solid var(--primary-color);
+}
+
+#ChatMessageInput {
+  border: none;
+  position: absolute;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  height: 100%;
+  font-size: 21px;
+}
+
+.NavTabs {
+  height: calc(100% - 75px);
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  border-right: var(--border-thickness) solid var(--primary-color);
+  border-left: var(--border-thickness) solid var(--primary-color);
+  border-bottom: var(--border-thickness) solid var(--primary-color);
+}
