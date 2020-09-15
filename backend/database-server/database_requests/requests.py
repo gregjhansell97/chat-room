@@ -5,14 +5,15 @@ import json
 import uuid
 import traceback
 
-from database_requests.models import Account
+from database_requests.models import Account, Message
 
 
 def json_wrapper(func):
-    """
-    wraps a function that receives json data, and dumps that data to func
+    """wraps a function that receives json data, and dumps that data to func
+
     Args:
         func(function): takes in named arguments
+
     Return:
         (function): wrapped function
     """
@@ -29,6 +30,21 @@ def json_wrapper(func):
             traceback.print_exc()
             return JsonResponse({"success": False, "error": f"{e} - look at server logs for more details"})
     wrapper.json_wrapper = True
+    return wrapper
+
+
+def token_wrapper(func):
+    """wraps a function and uses the token keyword passed into it to remap that to a username and password
+
+    Args:
+        func(function): takes in named arguments
+
+    Return:
+        (function): wrapped function
+    """
+    def wrapper(token=None, **kwargs):
+        account = Account.objects.get(token=token)
+        return func(**{**kwargs, "account": account})
     return wrapper
 
 
@@ -61,12 +77,15 @@ def get_token(*, username: str, password: str):
 
 
 @json_wrapper
-def add_message(*, app: str, author: str, content: dict):
+@token_wrapper
+def add_message(*, app: str, account: Account, content: dict, to_usernames: list):
     """TODO: explain"""
-    print(app)
-    print(author)
-    print(content)
-    return {"success": True}
+    m = Message.objects.create(app=app, author=account, content=content)
+    to_accounts = [Account.objects.get(username=u) for u in to_usernames] + [account]
+    for a in to_accounts:
+        a.messages.add(m)
+        a.save()
+    return {}
 
 
 @json_wrapper

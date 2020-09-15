@@ -44,7 +44,7 @@ class JSONField(TextField):
             pass
         return value
 
-    def from_db_value(self, value):
+    def from_db_value(self, value, *_, **__):
         """
         overrides TextField's from_db_value method
         """
@@ -67,7 +67,7 @@ class Message(Model):
     app: TextField = TextField(default="")
     """app the message is intended for"""
 
-    author: OneToOneField = OneToOneField("Account", on_delete=models.CASCADE)
+    author: ForeignKey = ForeignKey("Account", on_delete=models.CASCADE)
     """creator of message"""
 
     content: JSONField = JSONField(default={})
@@ -75,6 +75,10 @@ class Message(Model):
 
     timestamp: DateTimeField = DateTimeField(auto_now_add=True)
     """when the message was created"""
+
+    def json(self) -> dict:
+        """dict description of message - used exclusively for testing currently"""
+        return {"app": self.app, "content": self.content, "author": self.author.username}
 
 
 class Snapshot(Model):
@@ -89,7 +93,7 @@ class Snapshot(Model):
     timestamp: DateTimeField = DateTimeField(auto_now_add=True)
     """when the checkpoint was created"""
 
-    account = ForeignKey("Account", on_delete=models.CASCADE)
+    account = ForeignKey("Account", on_delete=models.CASCADE, null=True)
 
 
 class Account(Model):
@@ -100,7 +104,9 @@ class Account(Model):
     user: OneToOneField = OneToOneField(User, on_delete=models.CASCADE)
     """connects a TokenUser to a User"""
 
-    token: TextField = TextField(default="", blank=True)
+    username: TextField = TextField(primary_key=True, null=False, unique=True)
+
+    token: TextField = TextField(default="", blank=True, unique=True)
     """token used to access account without carrying around around a password"""
 
     messages: ManyToManyField = ManyToManyField(Message)
