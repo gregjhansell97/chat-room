@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="621a9667-b4ef-4af8-86b0-298d37f19382" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/bcast-server/src/websocket.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/p2p-server/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/p2p-server/Cargo.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/p2p-server/Cargo.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/p2p-server/src/main.rs" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jSd5hdQIbQaJfYcnzvvd8L3JVC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="621a9667-b4ef-4af8-86b0-298d37f19382" name="Default Changelist" comment="" />
+      <created>1603801248537</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603801248537</updated>
+    </task>
+    <servers />
+  </component>
+</project>
