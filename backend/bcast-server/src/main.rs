@@ -1,4 +1,4 @@
-mod websocket;
+mod websocket::client;
 
 extern crate ws;
 

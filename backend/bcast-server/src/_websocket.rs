@@ -51,11 +51,19 @@ impl Manager {
 
 #[cfg(test)]
 mod tests {
-    use crate::websocket::Manager;
+    use crate::_websocket::{Manager, ManagerRequest};
+    use std::sync::mpsc;
 
     #[test]
     fn test_new_manager_construction() {
         let manager = Manager::new();
+    }
+
+    #[test]
+    fn test_registration() {
+        let (tx, rx) = mpsc::channel();
+        requests = [ManagerRequest::Register(String::from("greg"), tx)];
+        Manager::handle_requests(requests.iter());
     }
 }
 
